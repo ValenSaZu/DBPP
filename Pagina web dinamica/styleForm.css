@@ -1,0 +1,22 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    background-color:  #FFFFE0;
+}
+header{
+    background-color:gold;
+}
+#Formulario{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 10px;
+    padding: 20px;
+}
+h1{
+    background-color:gold;
+    text-align: center;
+}
+@media screen and (max-width: 768px) {
+    #Formulario {
+      display: block;
+    }
+}

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleForm.css">
+    <title>Formulario a CV</title>
+</head>
+<body>
+    <header>
+        <h1>FORMULARIO CV</h1>
+    </header>
+    <form id="Formulario" action="generar_pdf.php" method="post">
+        <section class="grid1">
+            <label for="color">Elige el color de tu CV:</label><br>
+            <input type="color" id="color" name="color"><br><br>
+
+            <label for="imagen">Selecciona una foto:</label><br>
+            <input type="file" id="imagen" name="imagen"><br><br>
+
+            <label for="Nombre">Nombres:</label><br><br>
+            <input type="text" id="Nombre" name="Nombre" required><br><br>
+
+            <label for="Apellido">Apellido:</label><br><br>
+            <input type="text" id="Apellido" name="Apellido" required><br><br>
+
+            <label for="fechaNacimiento">Fecha de nacimiento:</label><br><br>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br><br>
+
+            <label for="ocupacion">Ocupación:</label><br><br>
+            <input type="text" id="ocupacion" name="ocupacion" required><br><br>
+
+            <label for="telefono">Telefono: </label><br><br>
+            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="Example: 999-999-999" required><br><br>
+            
+            <label for="email">Email: </label><br><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="nacionalidad">Selecciona su nacionalidad:</label>
+            <select id="nacionalidad" name="nacionalidad" required>
+                <option value="Abjasio/a">Abjasio/a</option>
+                <option value="Afgan@">Afgan@</option>
+                <option value="Albanes@">Albanes@</option>
+                <option value="Alemán/a">Alemán/a</option>
+                <option value="Andorrano/a">Andorrano/a</option>
+                <option value="Angoleñ@">Angoleñ@</option>
+                <option value="Antiguano/a">Antiguano/a</option>
+                <option value="Argelino/a">Argelino/a</option>
+                <option value="Argentino/a">Argentino/a</option>
+                <option value="Armeni@">Armeni@</option>
+                <option value="Arubeño/a">Arubeño/a</option>
+                <option value="Australiano/a">Australiano/a</option>
+                <option value="Austriac@">Austriac@</option>
+                <option value="Azerbaiyano/a">Azerbaiyano/a</option>
+                <option value="Bahameñ@">Bahameñ@</option>
+                <option value="Bahreiní">Bahreiní</option>
+                <option value="Bangladesí">Bangladesí</option>
+                <option value="Barbadense">Barbadense</option>
+                <option value="Belarus@">Belarus@</option>
+                <option value="Belga">Belga</option>
+                <option value="Beliceñ@">Beliceñ@</option>
+                <option value="Beninés/a">Beninés/a</option>
+                <option value="Bermudeño/a">Bermudeño/a</option>
+                <option value="Bhutanés/a">Bhutanés/a</option>
+                <option value="Birmano/a">Birmano/a</option>
+                <option value="Bolivian@">Bolivian@</option>
+                <option value="Bosni@">Bosni@</option>
+                <option value="Botsuan@">Botsuan@</option>
+                <option value="Brasileñ@">Brasileñ@</option>
+                <option value="Británico/a">Británico/a</option>
+                <option value="Brunéi">Brunéi</option>
+                <option value="Búlgar@">Búlgar@</option>
+                <option value="Burkinés/a">Burkinés/a</option>
+                <option value="Burundés/a">Burundés/a</option>
+                <option value="Butanés/a">Butanés/a</option>
+                <option value="Caboverdian@">Caboverdian@</option>
+                <option value="Camboyano/a">Camboyano/a</option>
+                <option value="Camerunés/a">Camerunés/a</option>
+                <option value="Canadiense">Canadiense</option>
+                <option value="Catarí">Catarí</option>
+                <option value="Chadian@">Chadian@</option>
+                <option value="Chileno/a">Chileno/a</option>
+                <option value="Chin@">Chin@</option>
+                <option value="Chipriota">Chipriota</option>
+                <option value="Cingalés/a">Cingalés/a</option>
+                <option value="Colombiano/a">Colombiano/a</option>
+                <option value="Comorense">Comorense</option>
+                <option value="Congoleñ@">Congoleñ@</option>
+                <option value="Costarricense">Costarricense</option>
+                <option value="Croata">Croata</option>
+                <option value="Cuban@">Cuban@</option>
+                <option value="Curazaleño/a">Curazaleño/a</option>
+                <option value="Danés/a">Danés/a</option>
+                <option value="Dominicano/a">Dominicano/a</option>
+                <option value="Ecuatorian@">Ecuatorian@</option>
+                <option value="Egipci@">Egipci@</option>
+                <option value="Emiratí">Emiratí</option>
+                <option value="Eritreo/a">Eritreo/a</option>
+                <option value="Escocés/a">Escocés/a</option>
+                <option value="Eslovac@">Eslovac@</option>
+                <option value="Esloven@">Esloven@</option>
+                <option value="Español/a">Español/a</option>
+                <option value="Estadounidense">Estadounidense</option>
+                <option value="Estoni@">Estoni@</option>
+                <option value="Etíope">Etíope</option>
+                <option value="Fiyi">Fiyi</option>
+                <option value="Filipin@">Filipin@</option>
+                <option value="Finlandés/a">Finlandés/a</option>
+                <option value="Francés/a">Francés/a</option>
+                <option value="Gabonés/a">Gabonés/a</option>
+                <option value="Gambiano/a">Gambiano/a</option>
+                <option value="Georgian@">Georgian@</option>
+                <option value="Ghanés/a">Ghanés/a</option>
+                <option value="Gibraltareño/a">Gibraltareño/a</option>
+                <option value="Granadino/a">Granadino/a</option>
+                <option value="Griego/a">Griego/a</option>
+                <option value="Guatemalteco/a">Guatemalteco/a</option>
+                <option value="Guineano/a">Guineano/a</option>
+                <option value="Guinea Ecuatorial">Guinea Ecuatorial</option>
+                <option value="Guineano/a">Guineano/a</option>
+                <option value="Guyanés/a">Guyanés/a</option>
+                <option value="Haitiano/a">Haitiano/a</option>
+                <option value="Hondureñ@">Hondureñ@</option>
+                <option value="Hongkonés/a">Hongkonés/a</option>
+                <option value="Húngar@">Húngar@</option>
+                <option value="Indio/a">Indio/a</option>
+                <option value="Indonesi@">Indonesi@</option>
+                <option value="Iraní">Iraní</option>
+                <option value="Iraquí">Iraquí</option>
+                <option value="Irlandés/a">Irlandés/a</option>
+                <option value="Islandés/a">Islandés/a</option>
+                <option value="Israelí">Israelí</option>
+                <option value="Italian@">Italian@</option>
+                <option value="Jamaican@">Jamaican@</option>
+                <option value="Japonés/a">Japonés/a</option>
+                <option value="Jordano/a">Jordano/a</option>
+                <option value="Kazajo/a">Kazajo/a</option>
+                <option value="Keniano/a">Keniano/a</option>
+                <option value="Kirguís">Kirguís</option>
+                <option value="Kiribatiano/a">Kiribatiano/a</option>
+                <option value="Kuwaití">Kuwaití</option>
+                <option value="Laosiano/a">Laosiano/a</option>
+                <option value="Lesothense">Lesothense</option>
+                <option value="Letón/a">Letón/a</option>
+                <option value="Libanés/a">Libanés/a</option>
+                <option value="Liberiano/a">Liberiano/a</option>
+                <option value="Libio/a">Libio/a</option>
+                <option value="Liechtensteiniano/a">Liechtensteiniano/a</option>
+                <option value="Lituano/a">Lituano/a</option>
+                <option value="Luxemburgués/a">Luxemburgués/a</option>
+                <option value="Madagascarí">Madagascarí</option>
+                <option value="Malasio/a">Malasio/a</option>
+                <option value="Malauí">Malauí</option>
+                <option value="Maldivo/a">Maldivo/a</option>
+                <option value="Maliense">Maliense</option>
+                <option value="Maltés/a">Maltés/a</option>
+                <option value="Marfileñ@">Marfileñ@</option>
+                <option value="Marianense">Marianense</option>
+                <option value="Marroquí">Marroquí</option>
+                <option value="Marshallese">Marshallese</option>
+                <option value="Maurician@">Maurician@</option>
+                <option value="Mauritano/a">Mauritano/a</option>
+                <option value="Mexican@">Mexican@</option>
+                <option value="Micronesio/a">Micronesio/a</option>
+                <option value="Moldavo/a">Moldavo/a</option>
+                <option value="Monegasco/a">Monegasco/a</option>
+                <option value="Mongol@">Mongol@</option>
+                <option value="Montenegrino/a">Montenegrino/a</option>
+                <option value="Montserratino/a">Montserratino/a</option>
+                <option value="Mozambiqueño/a">Mozambiqueño/a</option>
+                <option value="Namibio/a">Namibio/a</option>
+                <option value="Nauruano/a">Nauruano/a</option>
+                <option value="Nepalí">Nepalí</option>
+                <option value="Neozelandés/a">Neozelandés/a</option>
+                <option value="Nicaragüense">Nicaragüense</option>
+                <option value="Nigerino/a">Nigerino/a</option>
+                <option value="Nigeriano/a">Nigeriano/a</option>
+                <option value="Niueño/a">Niueño/a</option>
+                <option value="Norcoreano/a">Norcoreano/a</option>
+                <option value="Noruego/a">Noruego/a</option>
+                <option value="Omaní">Omaní</option>
+                <option value="Pakistání">Pakistání</option>
+                <option value="Palauano/a">Palauano/a</option>
+                <option value="Palestino/a">Palestino/a</option>
+                <option value="Panameño/a">Panameño/a</option>
+                <option value="Papú/a Neoguineano/a">Papú/a Neoguineano/a</option>
+                <option value="Paraguayo/a">Paraguayo/a</option>
+                <option value="Peruano/a">Peruano/a</option>
+                <option value="Polinesio/a">Polinesio/a</option>
+                <option value="Polaco/a">Polaco/a</option>
+                <option value="Portugués/a">Portugués/a</option>
+                <option value="Puertorriqueño/a">Puertorriqueño/a</option>
+                <option value="Qatarí">Qatarí</option>
+                <option value="Ruandés/a">Ruandés/a</option>
+                <option value="Rumano/a">Rumano/a</option>
+                <option value="Ruso/a">Ruso/a</option>
+                <option value="Salomonense">Salomonense</option>
+                <option value="Salvadoreño/a">Salvadoreño/a</option>
+                <option value="Samoano/a">Samoano/a</option>
+                <option value="Sanmarinense">Sanmarinense</option>
+                <option value="Santalucense">Santalucense</option>
+                <option value="Santotomense">Santotomense</option>
+                <option value="Saudí">Saudí</option>
+                <option value="Senegalés/a">Senegalés/a</option>
+                <option value="Serbio/a">Serbio/a</option>
+                <option value="Seychellense">Seychellense</option>
+                <option value="Sierraleonés/a">Sierraleonés/a</option>
+                <option value="Singapurense">Singapurense</option>
+                <option value="Sirio/a">Sirio/a</option>
+                <option value="Somalí">Somalí</option>
+                <option value="Srilankés/a">Srilankés/a</option>
+                <option value="Sudafricano/a">Sudafricano/a</option>
+                <option value="Sudanés/a">Sudanés/a</option>
+                <option value="Sursudanés/a">Sursudanés/a</option>
+                <option value="Suizo/a">Suizo/a</option>
+                <option value="Surinamés/a">Surinamés/a</option>
+                <option value="Swazi/a">Swazi/a</option>
+                <option value="Tailandés/a">Tailandés/a</option>
+                <option value="Taiwanés/a">Taiwanés/a</option>
+                <option value="Tanzano/a">Tanzano/a</option>
+                <option value="Tayiko/a">Tayiko/a</option>
+                <option value="Timorense">Timorense</option>
+                <option value="Togolés/a">Togolés/a</option>
+                <option value="Tongano/a">Tongano/a</option>
+                <option value="Trinitense">Trinitense</option>
+                <option value="Tunecino/a">Tunecino/a</option>
+                <option value="Turcomano/a">Turcomano/a</option>
+                <option value="Turco/a">Turco/a</option>
+                <option value="Tuvaluano/a">Tuvaluano/a</option>
+                <option value="Ucraniano/a">Ucraniano/a</option>
+                <option value="Ugandés/a">Ugandés/a</option>
+                <option value="Uruguayo/a">Uruguayo/a</option>
+                <option value="Uzbeko/a">Uzbeko/a</option>
+                <option value="Vanuatense">Vanuatense</option>
+                <option value="Vaticano/a">Vaticano/a</option>
+                <option value="Venezolano/a">Venezolano/a</option>
+                <option value="Vietnamita">Vietnamita</option>
+                <option value="Vincentino/a">Vincentino/a</option>
+                <option value="Yemení">Yemení</option>
+                <option value="Yibutiano/a">Yibutiano/a</option>
+                <option value="Zambiano/a">Zambiano/a</option>
+                <option value="Zimbabuense">Zimbabuense</option>
+            </select><br><br>
+
+            <div id="Idiomas">
+                <label for="Idioma">Ingresa tu idioma: </label><br>
+                <textarea name="Idioma" id="Idioma"></textarea><br>
+                <label for="nIdioma">Elige tu nivel de dominio: </label><br><br>
+                <label><input type="radio" name="nIdioma" value="basico">Básico</label>
+                <label><input type="radio" name="nIdioma" value="intermedio">Intermedio</label>
+                <label><input type="radio" name="nIdioma" value="avanzado">Avanzado</label>
+                <label><input type="radio" name="nIdioma" value="fluido">Fluido</label><br><br>
+                <button type="button" onclick="agregarIdioma()">Agregar</button>
+                <ul id="lista-Idiomas"></ul><br>
+                <script>
+                    function agregarIdioma() {
+                        var Idioma = document.getElementById("Idioma").value;
+                        var nivelIdioma = document.querySelector('input[name="nIdioma"]:checked').value;
+            
+                        var nuevoElemento = document.createElement("li");
+                        nuevoElemento.innerHTML = "<strong>" + Idioma + "</strong>: " + nivelIdioma;
+            
+                        var listaIdiomas = document.getElementById("lista-Idiomas");
+                        listaIdiomas.appendChild(nuevoElemento);
+            
+                        document.getElementById("Idioma").value = "";
+                        document.querySelector('input[name="nIdioma"]:checked').checked = false;
+                    }
+                </script>
+            </div>
+
+            <label for="lengProgra">Elige aquellos lenguajes de programación de los cuáles tengas dominio: </label><br>
+            <input type="checkbox" name="lengProgra" value="Java">Java<br>
+            <input type="checkbox" name="lengProgra" value="Python">Python<br>
+            <input type="checkbox" name="lengProgra" value="JavaScript">JavaScript<br>
+            <input type="checkbox" name="lengProgra" value="C#">C#<br>
+            <input type="checkbox" name="lengProgra" value="PHP">PHP<br>
+            <input type="checkbox" name="lengProgra" value="Ruby">Ruby<br>
+            <input type="checkbox" name="lengProgra" value="Swift">Swift<br>
+            <input type="checkbox" name="lengProgra" value="Kotlin">Kotlin<br>
+            <input type="checkbox" name="lengProgra" value="TypeScript">TypeScript<br>
+            <input type="checkbox" name="lengProgra" value="C++">C++<br>
+            <input type="checkbox" name="lengProgra" value="C">C<br>
+            <input type="checkbox" name="lengProgra" value="Objective-C">Objective-C<br>
+            <input type="checkbox" name="lengProgra" value="SQL">SQL<br>
+            <input type="checkbox" name="lengProgra" value="R">R<br>
+
+            <label for="Aptitudes">Aptitudes:</label><br>
+            <input type="checkbox" name="Aptitudes" value="Ap0">Comunicación efectiva<br>
+            <input type="checkbox" name="Aptitudes" value="Ap1">Trabajo en equipo<br>
+            <input type="checkbox" name="Aptitudes" value="Ap2">Adaptabilidad<br>
+            <input type="checkbox" name="Aptitudes" value="Ap3">Resolución de problemas<br>
+            <input type="checkbox" name="Aptitudes" value="Ap4">Toma de decisiones<br>
+            <input type="checkbox" name="Aptitudes" value="Ap5">Pensamiento crítico<br>
+            <input type="checkbox" name="Aptitudes" value="Ap6">Creatividad<br>
+            <input type="checkbox" name="Aptitudes" value="Ap7">Liderazgo<br>
+            <input type="checkbox" name="Aptitudes" value="Ap8">Organización y planificación<br>
+            <input type="checkbox" name="Aptitudes" value="Ap9">Gestión del tiempo<br>
+            <input type="checkbox" name="Aptitudes" value="Ap10">Autocontrol<br>
+            <input type="checkbox" name="Aptitudes" value="Ap11">Motivación<br>
+            <input type="checkbox" name="Aptitudes" value="Ap12">Empatía<br>
+            <input type="checkbox" name="Aptitudes" value="Ap13">Honestidad<br>
+            <input type="checkbox" name="Aptitudes" value="Ap14">Flexibilidad<br><br>
+
+        </section>
+        <section class="grid2">
+
+            <label for="Habilidades">Habilidades: </label><br>
+            <input type="checkbox" name="Habilidades" value="Hab0">Conocimiento de lenguajes de programación<br>
+            <input type="checkbox" name="Habilidades" value="Hab1">Capacidad de resolución de problemas<br>
+            <input type="checkbox" name="Habilidades" value="Hab2">Conocimiento de estructuras de datos y algoritmos<br>
+            <input type="checkbox" name="Habilidades" value="Hab3">Conocimiento de bases de datos<br>
+            <input type="checkbox" name="Habilidades" value="Hab4">Capacidad de trabajar en equipo<br>
+            <input type="checkbox" name="Habilidades" value="Hab5">Habilidad para seguir estándares de codificación<br>
+            <input type="checkbox" name="Habilidades" value="Hab6">Habilidad para depurar y probar el código<br>
+            <input type="checkbox" name="Habilidades" value="Hab7">Conocimiento de frameworks y librerías<br>
+            <input type="checkbox" name="Habilidades" value="Hab8">Conocimiento de metodologías de desarrollo de software<br>
+            <input type="checkbox" name="Habilidades" value="Hab9">Conocimiento de seguridad informática<br><br>
+
+            <label for="perfil">Perfil: </label><br>
+            <textarea id="perfil" name="perfil" rows="5" cols="50"></textarea><br><br>
+            
+            <div id="Experiencia laboral">
+                <p>Experiencia laboral:</p>
+                <label for="Cargo">Cargo: </label><br>
+                <input type="text" id="Cargo" name="Cargo" list="opciones">
+                <datalist id="opciones">
+                    <option value="Desarrollador de Software">Desarrollador de Software</option>
+                    <option value="Programador Web">Programador Web</option>
+                    <option value="Analista de Sistemas">Analista de Sistemas</option>
+                    <option value="Ingeniero de Software">Ingeniero de Software</option>
+                    <option value="Especialista en Seguridad Informática">Especialista en Seguridad Informática</option>
+                    <option value="Diseñador de UX/UI">Diseñador de UX/UI</option>
+                    <option value="Arquitecto de Software">Arquitecto de Software</option>
+                    <option value="Desarrollador Móvil">Desarrollador Móvil</option>
+                    <option value="Programador de Videojuegos">Programador de Videojuegos</option>
+                    <option value="Especialista en Inteligencia Artificial">Especialista en Inteligencia Artificial</option>
+                    <option value="Especialista en Big Data">Especialista en Big Data</option>
+                    <option value="Especialista en Blockchain">Especialista en Blockchain</option>
+                    <option value="Especialista en Ciberseguridad">Especialista en Ciberseguridad</option>
+                    <option value="Especialista en Desarrollo de Software Empresarial">Especialista en Desarrollo de Software Empresarial</option>
+                    <option value="Especialista en Desarrollo de Software Científico">Especialista en Desarrollo de Software Científico</option>
+                    <option value="Especialista en Programación de Sistemas Embebidos">Especialista en Programación de Sistemas Embebidos</option>
+                    <option value="Especialista en Desarrollo de Software de Automatización">Especialista en Desarrollo de Software de Automatización</option>
+                    <option value="Especialista en Desarrollo de Software de Realidad Aumentada y Virtual">Especialista en Desarrollo de Software de Realidad Aumentada y Virtual</option>
+                    <option value="Especialista en Desarrollo de Software de Control de Procesos Industriales">Especialista en Desarrollo de Software de Control de Procesos Industriales</option>
+                    <option value="Especialista en Desarrollo de Software de Simulación">Especialista en Desarrollo de Software de Simulación</option>
+                </datalist><br>
+
+                <label for="Empresa">Nombre de la empresa: </label>
+                <input type="text" name="Empresa" id="Empresa"><br>
+                <label for="EmpresaUbi">Ubicación: </label>
+                <input type="text" name="EmpresaUbi" id="EmpresaUbi" placeholder="Ejemplo: Arequipa,Peru"><br>
+                <label for="DescripcionTrabajo">Descripción de lo que realizaba:</label><br>
+                <textarea id="DescripcionTrabajo" name="DescripcionTrabajo" rows="5" cols="50"></textarea><br><br>
+                <label for="FechaInicio-trabajo">Año de Inicio:</label>
+                <input type="number" id="FechaInicio-trabajo" name="FechaInicio-trabajo"><br>
+                <label for="FechaTermino-trabajo">Año de termino:</label>
+                <input type="text" id="FechaTermino-trabajo" name="FechaTermino-trabajo" pattern="[a-zA-Z0-9]+" placeholder= "Ejm: Actualmente o 2023"><br><br>
+                <button type="button" onclick="agregarExperiencia()">Agregar</button>
+                <div id="lista-Experiencia" name="lista-Experiencia"></div><br>
+                <script>
+                    function agregarExperiencia() {
+                    var Cargo = document.getElementById("Cargo").value;
+                    var Empresa = document.getElementById("Empresa").value;
+                    var EmpresaUbi = document.getElementById("EmpresaUbi").value;
+                    var Descripcion = document.getElementById("DescripcionTrabajo").value;
+                    var fechaInicio = document.getElementById("FechaInicio-trabajo").value;
+                    var fechaTermino = document.getElementById("FechaTermino-trabajo").value;
+                   
+                     var nuevoParrafo = document.createElement("p");
+                     nuevoParrafo.innerHTML = "<strong>"+Cargo+"</strong>" + "<br>" + "<strong><em>"+Empresa+"</em></strong>"+" : "+
+                                              "<em>"+ EmpresaUbi+"</em>" +"   |"+ fechaInicio +"-"+ fechaTermino+"<br><br>"
+                                              + Descripcion;
+                   
+                     var listaExperiencia = document.getElementById("lista-Experiencia");
+                     listaExperiencia.appendChild(nuevoParrafo);
+                   
+                     document.getElementById("Cargo").value = "";
+                     document.getElementById("Empresa").value = "";
+                     document.getElementById("EmpresaUbi").value = "";
+                     document.getElementById("DescripcionTrabajo").value = "";
+                     document.getElementById("FechaInicio-trabajo").value = "";
+                     document.getElementById("FechaTermino-trabajo").value = "";
+                   }
+                   </script>
+
+        </div>
+
+        <div id="Formacion">
+            <p>Formacion: </p>
+            <label for="grado-input">Grado:</label>
+            <input type="text" id="grado-input"><br>
+            
+            <label for="institucion-input">Institución:</label>
+            <input type="text" id="institucion-input"><br>
+            
+            <label for="fecha-inicio-input">Fecha de inicio:</label>
+            <input type="number" id="fecha-inicio-input" name="fecha-inicio-input"><br>
+            
+            <label for="fecha-termino-input">Fecha de término:</label>
+            <input type="number" id="fecha-termino-input" name="fecha-termino-input"><br><br>
+            
+            <button type="button" onclick="agregarFormacion()">Agregar</button>
+            <div id="lista-formacion"></div>
+            
+            <script>
+            function agregarFormacion() {
+             var grado = document.getElementById("grado-input").value;
+             var institucion = document.getElementById("institucion-input").value;
+             var fechaInicio = document.getElementById("fecha-inicio-input").value;
+             var fechaTermino = document.getElementById("fecha-termino-input").value;
+           
+             var nuevoParrafo = document.createElement("p");
+             nuevoParrafo.innerHTML = "<strong>"+grado+"</strong>" + "<br>" +
+                                      "<strong><em>"+ institucion+"</em></strong>" +"   |"+ fechaInicio +"-"+ fechaTermino;
+           
+             var listaFormacion = document.getElementById("lista-formacion");
+             listaFormacion.appendChild(nuevoParrafo);
+           
+             document.getElementById("grado-input").value = "";
+             document.getElementById("institucion-input").value = "";
+             document.getElementById("fecha-inicio-input").value = "";
+             document.getElementById("fecha-termino-input").value = "";
+           }
+           </script><br><br>
+         </div>
+        <input type="submit" value="Generar Curriculum">
+    </section>
+    </form>
+</body>
+</html>
