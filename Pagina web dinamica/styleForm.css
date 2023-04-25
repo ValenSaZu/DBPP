@@ -1,6 +1,7 @@
 *{
     font-family:Arial, Helvetica, sans-serif;
     background-color:  #FFFFE0;
+    font-size: medium;
 }
 header{
     background-color:gold;
@@ -14,6 +15,22 @@ header{
 h1{
     background-color:gold;
     text-align: center;
+    font-size: 30px;
+}
+label, p{
+    font-weight:bold;
+}
+button{
+    padding: 5px;
+    background-color:rgb(243, 200, 93);
+}
+#botonEnviar{
+    text-align: center;
+}
+#enviarCV{
+    padding: 15px;
+    font-size: large;
+    background-color:rgb(240, 192, 105);
 }
 @media screen and (max-width: 768px) {
     #Formulario {

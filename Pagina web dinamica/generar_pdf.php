@@ -40,6 +40,8 @@
     $pdf -> Cell(40,10,$experiencia,1,1,'C');
     $pdf -> Cell(40,10,$formacion,1,1,'C');
 
+    $pdf -> Image($foto, 10, 10, 50, 0);
+    
     if (!empty($color)) {
         $r = hexdec($color[0]);
         $g = hexdec($color[1]);
@@ -47,12 +49,6 @@
         $pdf->SetFillColor($r, $g, $b);
         $pdf->Rect(0, 0, $pdf->GetPageWidth(), $pdf->GetPageHeight(), "F");
     }
-    
-    if (!empty($color)) {
-        $pdf->SetFillColor($color[0], $color[1], $color[2]);
-        $pdf->Rect(0, 0, $pdf->GetPageWidth(), $pdf->GetPageHeight(), "F");
-    }
 
     $pdf->Output('Curriculum.pdf', 'D');
 ?>
-

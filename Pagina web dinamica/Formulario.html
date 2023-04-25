@@ -14,10 +14,10 @@
     <form id="Formulario" action="generar_pdf.php" method="post">
         <section class="grid1">
             <label for="color">Elige el color de tu CV:</label><br>
-            <input type="color" id="color" name="color"><br><br>
+            <input type="color" id="color" name="color" required><br><br>
 
             <label for="imagen">Selecciona una foto:</label><br>
-            <input type="file" id="imagen" name="imagen"><br><br>
+            <input type="file" id="imagen" name="imagen" required><br><br>
 
             <label for="Nombre">Nombres:</label><br><br>
             <input type="text" id="Nombre" name="Nombre" required><br><br>
@@ -26,7 +26,7 @@
             <input type="text" id="Apellido" name="Apellido" required><br><br>
 
             <label for="fechaNacimiento">Fecha de nacimiento:</label><br><br>
-            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br><br>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento"  max= "2023-01-01" required><br><br>
 
             <label for="ocupacion">Ocupación:</label><br><br>
             <input type="text" id="ocupacion" name="ocupacion" required><br><br>
@@ -284,7 +284,7 @@
             <input type="checkbox" name="lengProgra" value="C">C<br>
             <input type="checkbox" name="lengProgra" value="Objective-C">Objective-C<br>
             <input type="checkbox" name="lengProgra" value="SQL">SQL<br>
-            <input type="checkbox" name="lengProgra" value="R">R<br>
+            <input type="checkbox" name="lengProgra" value="R">R<br><br>
 
             <label for="Aptitudes">Aptitudes:</label><br>
             <input type="checkbox" name="Aptitudes" value="Ap0">Comunicación efectiva<br>
@@ -319,7 +319,7 @@
             <input type="checkbox" name="Habilidades" value="Hab9">Conocimiento de seguridad informática<br><br>
 
             <label for="perfil">Perfil: </label><br>
-            <textarea id="perfil" name="perfil" rows="5" cols="50"></textarea><br><br>
+            <textarea id="perfil" name="perfil" rows="5" cols="50"></textarea required><br><br>
             
             <div id="Experiencia laboral">
                 <p>Experiencia laboral:</p>
@@ -347,17 +347,16 @@
                     <option value="Especialista en Desarrollo de Software de Control de Procesos Industriales">Especialista en Desarrollo de Software de Control de Procesos Industriales</option>
                     <option value="Especialista en Desarrollo de Software de Simulación">Especialista en Desarrollo de Software de Simulación</option>
                 </datalist><br>
-
                 <label for="Empresa">Nombre de la empresa: </label>
-                <input type="text" name="Empresa" id="Empresa"><br>
+                <input type="text" name="Empresa" id="Empresa" ><br>
                 <label for="EmpresaUbi">Ubicación: </label>
                 <input type="text" name="EmpresaUbi" id="EmpresaUbi" placeholder="Ejemplo: Arequipa,Peru"><br>
                 <label for="DescripcionTrabajo">Descripción de lo que realizaba:</label><br>
                 <textarea id="DescripcionTrabajo" name="DescripcionTrabajo" rows="5" cols="50"></textarea><br><br>
                 <label for="FechaInicio-trabajo">Año de Inicio:</label>
-                <input type="number" id="FechaInicio-trabajo" name="FechaInicio-trabajo"><br>
+                <input type="number" id="FechaInicio-trabajo" name="FechaInicio-trabajo" max="2023"><br>
                 <label for="FechaTermino-trabajo">Año de termino:</label>
-                <input type="text" id="FechaTermino-trabajo" name="FechaTermino-trabajo" pattern="[a-zA-Z0-9]+" placeholder= "Ejm: Actualmente o 2023"><br><br>
+                <input type="text" id="FechaTermino-trabajo" name="FechaTermino-trabajo" pattern="[a-z A-Z 0-9]+" placeholder= "Ejm: Actualmente o 2023"><br><br>
                 <button type="button" onclick="agregarExperiencia()">Agregar</button>
                 <div id="lista-Experiencia" name="lista-Experiencia"></div><br>
                 <script>
@@ -391,16 +390,16 @@
         <div id="Formacion">
             <p>Formacion: </p>
             <label for="grado-input">Grado:</label>
-            <input type="text" id="grado-input"><br>
+            <input type="text" id="grado-input"><br><br>
             
             <label for="institucion-input">Institución:</label>
-            <input type="text" id="institucion-input"><br>
+            <input type="text" id="institucion-input"><br><br>
             
             <label for="fecha-inicio-input">Fecha de inicio:</label>
-            <input type="number" id="fecha-inicio-input" name="fecha-inicio-input"><br>
+            <input type="number" id="fecha-inicio-input" name="fecha-inicio-input" max="2023"><br><br>
             
             <label for="fecha-termino-input">Fecha de término:</label>
-            <input type="number" id="fecha-termino-input" name="fecha-termino-input"><br><br>
+            <input type="number" id="fecha-termino-input" name="fecha-termino-input" max="2023"><br><br>
             
             <button type="button" onclick="agregarFormacion()">Agregar</button>
             <div id="lista-formacion"></div>
@@ -426,7 +425,9 @@
            }
            </script><br><br>
          </div>
-        <input type="submit" value="Generar Curriculum">
+         <div id="botonEnviar">
+            <input type="submit" value="Generar Curriculum" id="enviarCV">
+         </div>
     </section>
     </form>
 </body>
