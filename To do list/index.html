@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-do list</title>
+</head>
+<body>
+    <h1>To-do list</h1>
+    <h2>Planner</h2>
+    <div id="container">
+        <section class="grid1">
+            <h3>Pendientes</h3><br>
+            <div class="Mobile">
+                <input type="text" id="pendientes" placeholder="Escribe tus tareitas c:">
+                <button type="button" onclick="newElement()">Agregar</button><br>
+                <button type="button" id="Marcartodo" onclick="marcarTodos()">Marcar Todos</button>
+                <button type="button" onclick="EliminarMarcados()">Eliminar los marcados</button>
+            </div>
+            <ul id="Lista"></ul>
+            <script>
+                function newElement() {
+                    var nuevoPendiente = document.getElementById("pendientes").value;
+                    var nuevoElemento = document.createElement("input");
+                    nuevoElemento.type = "checkbox";
+                    nuevoElemento.value = nuevoPendiente;
+                    nuevoElemento.id = "pendiente-" + Date.now();
+                    var label = document.createElement("label");
+                    label.innerHTML = nuevoPendiente;
+                    var listaPendientes = document.getElementById("Lista");
+                    var li = document.createElement("li");
+                    li.appendChild(nuevoElemento);
+                    li.appendChild(label);
+                    listaPendientes.appendChild(li);
+                    nuevoElemento.onchange = function() {
+                        if (nuevoElemento.checked) {
+                            var eliminarBtn = document.createElement("button");
+                            eliminarBtn.innerHTML = "Felicidades, una tarea menos :D";
+                            eliminarBtn.onclick = function() {
+                                eliminarPendiente(nuevoElemento.id);
+                            };
+                            label.appendChild(eliminarBtn);
+                        } else {
+                            label.removeChild(label.lastChild);
+                        }
+                    };
+                    document.getElementById("pendientes").value = "";
+                }
+                function eliminarPendiente(id) {
+                    var listaPendientes = document.getElementById("Lista");
+                    var elemento = document.getElementById(id);
+                    listaPendientes.removeChild(elemento.parentNode);
+                }
+                function marcarTodos() {
+                    var listaPendientes = document.getElementById("Lista");
+                    var checkboxes = listaPendientes.getElementsByTagName("input");
+                    for (var i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i].checked) {
+                            checkboxes[i].checked = false;
+                            checkboxes[i].onchange();
+                        } else {
+                            checkboxes[i].checked = true;
+                            checkboxes[i].onchange();
+                        }
+                    }
+                }
+                function EliminarMarcados() {
+                    var listaPendientes = document.getElementById("Lista");
+                    var checkboxes = listaPendientes.getElementsByTagName("input");
+                    for (var i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i].checked) {;
+                            listaPendientes.removeChild(checkboxes[i].parentNode);
+                        }
+                    }
+                }
+            </script>
+        </section>
+        <section class="grid2">
+            <h3>Notes</h3><br>
+            <input type="text" id="Notes" class="textNotes" placeholder="Escribe tus tareitas c:">
+            <button type="button" onclick="nuevaNota()">Agregar notita</button><br><br>
+            <ul id="listaNotas"></ul>
+            <script>
+                function nuevaNota(){
+                    var Nota = document.getElementById("Notes").value;
+                
+                    var nuevoElemento = document.createElement("li");
+                    nuevoElemento.innerHTML = Nota + "<hr>";
+                
+                    var listaIdiomas = document.getElementById("listaNotas");
+                    listaIdiomas.appendChild(nuevoElemento);
+                
+                    document.getElementById("Notes").value = "";
+                }
+            </script>
+        </section>
+    </div>
+</body>
+</html>
