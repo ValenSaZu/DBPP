@@ -1,0 +1,127 @@
+using Formulario_a_CV;
+using Syncfusion.Drawing;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
+using System;
+using System.IO;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+
+namespace Formulario_a_CV
+{
+    public class FormularioPage : ContentPage
+    {
+        private Entry nombreEntry;
+        private Entry apellidoEntry;
+        private DatePicker fechaNacimientoPicker;
+        private Entry ocupacionEntry;
+        private Entry telefonoEntry;
+        private Entry emailEntry;
+        private Picker nacionalidadPicker;
+
+        public FormularioPage()
+        {
+            nombreEntry = new Entry();
+            apellidoEntry = new Entry();
+            fechaNacimientoPicker = new DatePicker();
+            ocupacionEntry = new Entry();
+            telefonoEntry = new Entry { Placeholder = "Example: 999-999-999", Keyboard = Keyboard.Telephone };
+            emailEntry = new Entry { Keyboard = Keyboard.Email };
+            nacionalidadPicker = new Picker();
+            nacionalidadPicker.ItemsSource = new[]
+            {
+                "Abjasio/a", "Afgan@", "Albanes@", "Alemán/a", "Andorrano/a", "Angoleñ@", "Antiguano/a",
+                "Argelino/a", "Argentino/a", "Armeni@", "Arubeño/a", "Australiano/a", "Austriac@", "Azerbaiyano/a",
+                "Bahameñ@", "Bahreiní", "Bangladesí", "Barbadense", "Belarus@", "Belga", "Beliceñ@", "Beninés/a",
+                "Bermudeño/a", "Bhutanés/a", "Birmano/a", "Bolivian@", "Bosni@", "Botsuan@", "Brasileñ@", "Británico/a",
+                "Brunéi", "Búlgar@", "Burkinés/a", "Burundés/a", "Butanés/a", "Caboverdian@", "Camboyano/a",
+                "Camerunés/a", "Canadiense", "Catarí", "Chadian@", "Chileno/a", "Chin@", "Chipriota", "Cingalés/a",
+                "Colombiano/a", "Comorense", "Congoleñ@", "Costarricense", "Croata", "Cuban@", "Curazaleño/a",
+                "Danés/a", "Dominicano/a", "Ecuatorian@", "Egipci@", "Emiratí", "Eritreo/a", "Escocés/a", "Eslovac@",
+                "Esloven@", "Español/a", "Estadounidense", "Estoni@", "Etíope", "Fiyi", "Filipin@", "Finlandés/a",
+                "Francés/a", "Gabonés/a", "Gambiano/a", "Georgian@", "Ghanés/a", "Gibraltareño/a", "Granadino/a",
+                "Griego/a", "Guatemalteco/a", "Guineano/a", "Guinea Ecuatorial", "Guineano/a", "Guyanés/a",
+                "Haitiano/a", "Hondureñ@", "Hongkonés/a", "Húngar@", "Indio/a", "Indonesi@", "Iraní", "Iraquí",
+                "Irlandés/a", "Islandés/a", "Israelí", "Italian@", "Jamaican@", "Japonés/a", "Jordano/a", "Kazajo/a",
+                "Keniano/a", "Kirguís", "Kiribatiano/a", "Kuwaití", "Laosiano/a", "Lesothense", "Letón/a",
+                "Libanés/a", "Liberiano/a", "Libio/a", "Liechtensteiniano/a", "Lituano/a", "Luxemburgués/a",
+                "Macaense", "Macedonio/a", "Malasio/a", "Malauí", "Maldivo/a", "Maliense", "Maltés/a",
+                "Marfileñ@", "Marianense", "Marroquí", "Maurician@", "Mauritano/a", "Mexican@", "Micronesio/a",
+                "Moldavo/a", "Monacense", "Mongol@", "Montenegrino/a", "Mozambiqueñ@", "Namibio/a", "Nauruano/a",
+                "Neerlandés/a", "Neozelandés/a", "Nepalí", "Nicaragüense", "Nigerino/a", "Nigeriano/a",
+                "Norcoreano/a", "Noruego/a", "Norvietnamita", "Omaní", "Pakistání", "Palauense", "Palestino/a",
+                "Panameñ@", "Papú", "Paraguayo/a", "Peruano/a", "Polaco/a", "Portugués/a", "Puertorriqueñ@",
+                "Qatarí", "Ruandés/a", "Rumano/a", "Ruso/a", "Salomonense", "Salvadoreñ@", "Samooano/a",
+                "Sanmarinense", "Santotomense", "Saudí", "Senegalés/a", "Serbio/a", "Seychellense", "Sierraleonés/a",
+                "Singapurense", "Sirio/a", "Somalí", "Sudafricano/a", "Sudanés/a", "Sudcoreano/a", "Sueco/a",
+                "Suizo/a", "Surinamés/a", "Swazi", "Tailandés/a", "Tanzano/a", "Tayiko/a", "Timorense", "Togolés/a",
+                "Tongano/a", "Trinitense", "Tunecino/a", "Turcomano/a", "Turco/a", "Tuvaluano/a", "Ucraniano/a",
+                "Ugandés/a", "Uruguayo/a", "Uzbeko/a", "Vanuatuense", "Vaticano/a", "Venezolano/a", "Vietnamita",
+                "Vincentiano/a", "Yemení", "Yibutiano/a", "Zaimbiano/a", "Zimbabuense"
+            };
+
+            var generarCVButton = new Button { Text = "Generar CV" };
+            generarCVButton.Clicked += GenerarCVButtonClicked;
+
+            Content = new StackLayout
+            {
+                Children =
+                {
+                    new Label { Text = "Nombres:" },
+                    nombreEntry,
+                    new Label { Text = "Apellidos:" },
+                    apellidoEntry,
+                    new Label { Text = "Fecha de nacimiento:" },
+                    fechaNacimientoPicker,
+                    new Label { Text = "Ocupación:" },
+                    ocupacionEntry,
+                    new Label { Text = "Teléfono:" },
+                    telefonoEntry,
+                    new Label { Text = "Email:" },
+                    emailEntry,
+                    new Label { Text = "Nacionalidad:" },
+                    nacionalidadPicker,
+                    generarCVButton
+                }
+            };
+        }
+
+        private void GenerarCVButtonClicked(object sender, EventArgs e)
+        {
+            string nombre = nombreEntry.Text;
+            string apellido = apellidoEntry.Text;
+            DateTime fechaNacimiento = fechaNacimientoPicker.Date;
+            string ocupacion = ocupacionEntry.Text;
+            string telefono = telefonoEntry.Text;
+            string email = emailEntry.Text;
+            string nacionalidad = nacionalidadPicker.SelectedItem.ToString();
+
+            PdfDocument document = new PdfDocument();
+            PdfPage page = document.Pages.Add();
+            PdfGraphics graphics = page.Graphics;
+            PointF position = new PointF(50, 50);
+
+            graphics.DrawString("Nombre: " + nombre, new PdfStandardFont(PdfFontFamily.Helvetica, 12), PdfBrushes.Black, position);
+            position.Y += 20;
+            graphics.DrawString("Apellido: " + apellido, new PdfStandardFont(PdfFontFamily.Helvetica, 12), PdfBrushes.Black, position);
+            position.Y += 20;
+            graphics.DrawString("Fecha de nacimiento: " + fechaNacimiento.ToString("dd/MM/yyyy"), new PdfStandardFont(PdfFontFamily.Helvetica, 12), PdfBrushes.Black, position);
+            position.Y += 20;
+            graphics.DrawString("Ocupación: " + ocupacion, new PdfStandardFont(PdfFontFamily.Helvetica, 12), PdfBrushes.Black, position);
+            position.Y += 20;
+            graphics.DrawString("Teléfono: " + telefono, new PdfStandardFont(PdfFontFamily.Helvetica, 12), PdfBrushes.Black, position);
+            position.Y += 20;
+            graphics.DrawString("Email: " + email, new PdfStandardFont(PdfFontFamily.Helvetica, 12), PdfBrushes.Black, position);
+            position.Y += 20;
+            graphics.DrawString("Nacionalidad: " + nacionalidad, new PdfStandardFont(PdfFontFamily.Helvetica, 12), PdfBrushes.Black, position);
+
+            string filePath = Path.Combine(FileSystem.CacheDirectory, "CV.pdf");
+            using (FileStream fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                document.Save(fileStream);
+            }
+            document.Close(true);
+            DisplayAlert("Éxito", "El CV ha sido generado correctamente.", "OK");
+        }
+    }
+}
